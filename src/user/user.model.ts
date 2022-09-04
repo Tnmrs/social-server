@@ -1,10 +1,6 @@
-import { prop } from '@typegoose/typegoose';
+import { prop, Ref } from '@typegoose/typegoose';
 import { Base, TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
-
-enum EnumGender {
-  'male' = 'male',
-  'female' = 'female',
-}
+import { EnumGender } from './user.interface';
 
 export interface UserModel extends Base {}
 
@@ -15,18 +11,21 @@ export class UserModel extends TimeStamps {
   @prop()
   name: string;
 
-  @prop({ default: false })
+  @prop()
   isVerified: boolean;
 
   @prop()
-  birthDate: string;
+  city: string;
 
   @prop({ enum: EnumGender })
   gender: string;
 
   @prop()
-  city: string;
+  avatarPath: string;
 
   @prop()
-  avatarPath: string;
+  birthData: string;
+
+  @prop({ default: [], ref: () => UserModel })
+  friends: Ref<UserModel>[];
 }
