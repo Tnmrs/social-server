@@ -41,10 +41,9 @@ export class UserService {
 
     user.name = dto.name;
     user.city = dto.city;
-
     user.gender = dto.gender;
     user.avatarPath = dto.avatarPath;
-    user.birthData = dto.birthData;
+    user.birthDate = dto.birthDate;
 
     return await user.save();
   }

@@ -8,7 +8,7 @@ export class UserDto {
   avatarPath: string;
 
   @IsString()
-  birth: string;
+  birthDate: string;
 
   @IsEnum(EnumGender)
   gender: string;

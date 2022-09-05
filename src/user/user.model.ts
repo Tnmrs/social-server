@@ -15,6 +15,9 @@ export class UserModel extends TimeStamps {
   isVerified: boolean;
 
   @prop()
+  birthDate: string;
+
+  @prop()
   city: string;
 
   @prop({ enum: EnumGender })
@@ -22,9 +25,6 @@ export class UserModel extends TimeStamps {
 
   @prop()
   avatarPath: string;
-
-  @prop()
-  birthData: string;
 
   @prop({ default: [], ref: () => UserModel })
   friends: Ref<UserModel>[];
